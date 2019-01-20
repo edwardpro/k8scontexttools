@@ -62,3 +62,11 @@ func homeWindows() (string, error) {
 func IsInstallKubectl() bool {
 	return false
 }
+
+func IsPathExist(_path string) bool {
+	_, err := os.Stat(_path)
+	if err != nil && os.IsNotExist(err) {
+		return false
+	}
+	return true
+}
